@@ -10,4 +10,14 @@ class Jurnalis extends Model
     use HasFactory;
 
     protected $table = "jurnalis";
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, "user_id");
+    }
+
+    public function berita()
+    {
+        return $this->hasMany(Berita::class, "jurnalis_id");
+    }
 }

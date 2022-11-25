@@ -19,6 +19,7 @@
             <tr>
                 <td>{{ $user->id }}</td>
                 <td>{{ $user->nama }}</td>
+                <td>{{ $user->jurnalis == null ? "" : $user->jurnalis->kelamin }}</td>
                 <td>{{ $user->username }}</td>
                 <td>{{ $user->level }}</td>
                 <td>{{ $user->password }}</td>

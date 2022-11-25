@@ -42,4 +42,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function jurnalis()
+    {
+        return $this->hasOne(Jurnalis::class, "user_id");
+    }
+
+    public function komentar()
+    {
+        return $this->hasMany(Komentar::class, "user_id");
+    }
 }
