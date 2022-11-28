@@ -9,6 +9,8 @@ class Komentar extends Model
 {
     use HasFactory;
 
+    protected $table="komentar";
+
     public function berita()
     {
         return $this->belongsTo(Berita::class, "berita_id");

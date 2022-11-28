@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Berita extends Model
 {
     use HasFactory;
+    protected $table = "berita";
 
     public function jurnalis()
     {
@@ -17,5 +18,10 @@ class Berita extends Model
     public function komentar()
     {
         return $this->hasMany(Komentar::class, "berita_id");
+    }
+
+    public function kategori()
+    {
+        return $this->belongsToMany(Kategori::class, "kategori_berita", "berita_id", "kategori_id");
     }
 }
