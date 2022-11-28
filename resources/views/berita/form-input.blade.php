@@ -7,7 +7,7 @@
 
         Judul : <input type="text" name="judul"> <br>
         Gambar: <input type="text" name="gambar"> <br>
-        Berita <textarea name="berita" id="" cols="30" rows="10"></textarea> <br>
+        Berita <textarea name="berita" id="berita" cols="30" rows="10"></textarea> <br>
 
         Pilih Kategori:
 
@@ -21,4 +21,9 @@
     </form>
 
 
+    <script src="//cdn.ckeditor.com/4.20.0/full/ckeditor.js"></script>
+
+    <script>
+        CKEDITOR.replace("berita");
+    </script>
 @endsection

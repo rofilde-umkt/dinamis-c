@@ -33,4 +33,24 @@ class BeritaController extends Controller
         $berita = Berita::find($id);
         return view("berita.tampil", ['berita' => $berita]);
     }
+
+    public function formEdit($id)
+    {
+        $kategori = Kategori::all();
+        return view("berita.form-edit")->with("kategori", $kategori)->with("id", $id);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $berita = Berita::find($id);
+        $berita->judul = $request->get("judul");
+        $berita->gambar = $request->get("gambar");
+        $berita->berita = $request->get("berita");
+        $berita->jurnalis_id = auth()->user()->jurnalis->id;
+        $berita->save();
+
+        $berita->kategori()->sync($request->get("kategori")); // simpan relasi many to many
+
+        return redirect(route("tampil_berita", ['id' => $berita->id]));
+    }
 }
