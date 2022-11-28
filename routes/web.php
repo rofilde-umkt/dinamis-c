@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\SecurityController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\JurnalisController;
+use App\Http\Controllers\BeritaController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -65,6 +66,10 @@ Route::middleware("auth")->group(function() {
     Route::get("jurnalis/ubah/{id}", [JurnalisController::class, 'ubah'])->name("ubah_jurnalis");
     Route::put("jurnalis/update/{id}", [JurnalisController::class, 'update'])->name("update_jurnalis");
     Route::delete("jurnalis/hapus/{id}", [JurnalisController::class, 'hapus'])->name("hapus_jurnalis");
+
+    Route::get("berita/buat", [BeritaController::class, "formInput"])->name("buat_berita");
+    Route::post("berita/simpan", [BeritaController::class, "simpan"])->name("simpan_berita");
+    Route::get("berita/tampil/{id}", [BeritaController::class, "tampil"])->name("tampil_berita");
 
 });
 
