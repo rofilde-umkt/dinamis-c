@@ -11,4 +11,12 @@
     <div>
         {!! $berita->berita !!}
     </div>
+
+    <div>
+
+        @foreach($berita->kategori as $kat)
+            {{ $kat->nama }} |
+        @endforeach
+
+    </div>
 @endsection
